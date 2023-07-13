@@ -1,0 +1,42 @@
+# Program Name: Lab3.py
+# Course: IT1114/Section W01
+# Student Name: Israel Iyoha
+# Assignment Number: Lab#3
+# Due Date: 06/11/ 2023
+# Purpose: to determine and display the total sales for the department
+# https://stackoverflow.com/questions/10576724/python-file-exercise-issue for help with line 22
+
+#determine and display total sales
+sales_goal = float(input("enter sales goal: $"))
+
+#defining variables to 0
+num_employees = 0
+total_sales = 0
+another_employee = "y"
+
+#Loop for manger to input salesperson sales for 4 weeks
+while another_employee == "y":
+    weekly_sales = 0
+    #askng manager to input salesperson sales for 4 weeks
+    for i in range(0, 4):
+        weekly_sales += float(input("salesperson week " + str(i + 1) + ": "))
+    #adding salesperson sales to total sales amount
+    total_sales += weekly_sales
+    #adding number of salesperson to total number of employees
+    num_employees += 1
+    #asking the manager if there is another employee
+    another_employee = input("is there another employee(y/n)? ")
+
+#output
+print("total number of employees:", num_employees)
+print("department sales goal: $", sales_goal)
+print("total sales for department: $", total_sales)
+
+#calculating managers bonus
+if total_sales > sales_goal:
+    manager_bonus = total_sales * 0.05
+else:
+    manager_bonus = total_sales * 0.02
+
+#output
+print("mgr. bonus:", manager_bonus)

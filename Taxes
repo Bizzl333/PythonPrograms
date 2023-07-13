@@ -1,0 +1,54 @@
+# Program Name: Exam1.py
+# Course: IT1114/Section W01
+# Student Name: Israel Iyoha
+# Assignment Number: Exam 1
+# Due Date: 06/18/ 2023
+# Purpose: Help calculate taxes
+
+# Prompt the user for their total income for the year and save the input as a floating-point number.
+income = float(input("income"))
+# Ask the user if they are married or not and store the answer.
+is_married = input("is married")
+# If the user is married, ask for the number of years they have been married and save the input as an integer.
+years_married = 0
+if is_married == "y":
+    years_married = int(input("years married"))
+# Ask the user for the elevation status of their home address and store the answer as an integer.
+elevation = int(input("elevation"))
+# If the user lives above sea level, ask for the number of bedrooms in their house and store the answer as an integer.
+num_bedrooms = 0
+if elevation == 3:
+    num_bedrooms = int(input("bedrooms"))
+
+
+# Calculate the initial income tax based on the total income:
+# If income is less than $10,000, tax is 2.3% of income.
+if income < 10000:
+    tax = (0.023 * income)
+# If income is between $10,000 and $50,000, tax is 4.5% of income.
+elif 10000 <= income <= 50000:
+    tax = (0.045 * income)
+# If income is more than $50,000, tax is 6.1% of income.
+else:
+    tax = (0.061 * income)
+
+
+# If the user is married, subtract ($1.62 * years_married) from the income tax.
+if is_married == "y":
+    tax -= (1.62 * years_married)
+
+
+# Based on the user's elevation status:
+# If the user lives below sea level, add $18.32 to the income tax.
+if elevation == 1:
+    tax += 18.32
+# If the user lives at sea level, add 1.6% of income to the income tax.
+elif elevation == 2:
+    tax += (0.016 * income)
+# If the user lives above sea level, add a $5.00 charge per bedroom to the income tax.
+else:
+    tax += (5 * num_bedrooms)
+
+# Print the final calculated income tax.
+print("total", tax)
+

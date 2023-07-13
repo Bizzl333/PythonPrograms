@@ -1,0 +1,38 @@
+# Program Name: Lab8.py
+# Course: IT1114/Section W01
+# Student Name: Israel Iyoha
+# Assignment Number: Lab8
+# Due Date: 07/02/ 2023
+# Purpose: combine two integer arrays into one larger array and remove any
+# duplicate values
+
+import random
+
+# Prompt the user for a number N
+N = int(input("Enter a positive integer greater than 1: "))
+
+# Create two lists each with N elements
+# Create two empty lists
+list1 = []
+list2 = []
+
+# Fill the lists with N random integers each
+for i in range(N):
+    list1.append(random.randint(0, 500))
+
+for i in range(N):
+    list2.append(random.randint(0, 500))
+
+
+# Combine the two lists into a third list making sure that only distinct values are added
+def combine_lists(list1, list2):
+    combined_list = []
+    for num in list1 + list2:
+        if num not in combined_list:
+            combined_list.append(num)
+    return combined_list
+
+
+# Print the contents of the final list
+for number in combine_lists(list1, list2):
+    print(number)

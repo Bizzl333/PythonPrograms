@@ -1,0 +1,77 @@
+# Program Name: Lab4.py
+# Course: IT1114/Section W01
+# Student Name: Israel Iyoha Assignment
+# Number: Lab#4
+# Due Date:06/15/2023
+# Purpose: To determine and calculate cost of vacation List specific resources used to complete the
+# https://realpython.com/iterate-through-dictionary-python/
+#   for creating a dictionary in roomCost and excursionCost function
+
+# Function to calculate room cost
+def roomCost(nights, room_type):
+    room_prices = {
+        1: 375,
+        2: 350,
+        3: 525,
+        4: 475
+    }
+    return room_prices[room_type] * nights
+
+
+# function to calculate meal cost
+def mealCost(brunch, dinner):
+    brunch_price = 25
+    dinner_price = 75
+    gratuity = 0.15
+    total_meal_cost = ((brunch * brunch_price) + (dinner * dinner_price)) * (1 + gratuity)
+    return total_meal_cost
+
+
+# function to calculate the cost of excursions
+def excursionCost(num_people):
+    total_excursion_cost = 0
+    excursions = {
+        "Picnic": 50,
+        "Snorkeling": 25,
+        "Guided Hike": 17,
+        "Boat Dinner": 200
+    }
+
+    # Loop for each excursion
+    for excursion, cost in excursions.items():
+        include_excursion = input(excursion + "? (y/n): ")
+        if include_excursion.lower() == 'y':
+            # snorkeling and guided hike is per person
+            if excursion in ["Snorkeling", "Guided Hike"]:
+                total_excursion_cost += cost * num_people
+            else:
+                total_excursion_cost += cost
+    return total_excursion_cost
+
+
+# user inputs
+nights = int(input("Enter the number of nights for the stay: "))
+num_people = int(input("Enter the number of people: "))
+# room options
+print("Room types:")
+print("(1) - Two Queen beds")
+print("(2) - One King bed")
+print("(3) - Queen suite")
+print("(4) - King suite")
+room_type = int(input("Enter room type: "))
+brunch = int(input("Enter the number of brunches: "))
+dinner = int(input("Enter the number of dinners: "))
+
+# costs by calling the functions
+total_room_cost = roomCost(nights, room_type)
+total_meal_cost = mealCost(brunch, dinner)
+total_excursion_cost = excursionCost(num_people)
+
+# total cost of the vacation
+total_cost = total_room_cost + total_meal_cost + total_excursion_cost
+
+# costs output
+print("Room cost: $", total_room_cost)
+print("Meal cost: $", total_meal_cost)
+print("Excursion cost: $", total_excursion_cost)
+print("Total cost: $", total_cost)

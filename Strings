@@ -1,0 +1,38 @@
+# Program Name: Lab9.py
+# Course: IT1114/Section W01
+# Student Name: Israel Iyoha
+# Assignment Number: Lab9
+# Due Date: 07/13/ 2023
+# Purpose: Verifies password requirements
+# https://realpython.com/lessons/character-classification/
+
+# Input
+password = input("Enter a password: ")
+
+
+# Process
+# Function to verify password requirements
+def verify_password(password):
+    # Password must be at least 9 characters long
+    if len(password) < 9:
+        return False
+    # Password must contain at least one uppercase letter
+    if password.islower():
+        return False
+    # Password must contain at least one lowercase letter
+    if password.isupper():
+        return False
+    # Password must contain at least one digit
+    if password.isdigit():
+        return False
+    # Password must contain at least one special character
+    if password.isalnum():
+        return False
+    return True
+
+
+# Output
+if verify_password(password):
+    print("Valid password")
+else:
+    print("Invalid password")

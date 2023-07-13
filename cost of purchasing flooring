@@ -1,0 +1,33 @@
+# Program Name: Lab1.py 
+# Course: IT1114/Section W01
+# Student Name: Israel Iyoha
+# Assignment Number: Lab#1
+# Due Date: 06/04/2023
+# Purpose: To calculate the cost of purchasing flooring 
+
+
+#Calculate the amount and cost of floor
+#Length, Width, cost per sq ft = user input
+#Calculate total square, floor cost, 7% tax and total amount = output
+
+length = float(input("Enter the length of the room in ft: "))
+width = float(input("Enter the width of the room in ft: "))
+cost_per_sq_ft = float(input("Enter the cost of the floor per sq. ft: "))
+
+#total sq ft
+total_sq_ft = length * width
+
+#total cost of flooring 
+cost_of_flooring = total_sq_ft * cost_per_sq_ft
+
+#total tax
+tax = 0.07 * cost_of_flooring
+
+#total amount
+total_amount = cost_of_flooring + tax
+
+#output
+print("Square feet:", total_sq_ft)
+print("Flooring:", cost_of_flooring)
+print("Tax:", tax)
+print("Total:", total_amount)

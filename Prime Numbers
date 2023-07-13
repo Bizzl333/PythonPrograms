@@ -1,0 +1,27 @@
+# Program Name: Lab5.py
+# Course: IT1114/Section W01
+# Student Name: Israel Iyoha
+# Assignment Number: Lab5
+# Due Date: 06/22/ 2023
+# Purpose: print all the prime numbers between 2 numbers
+
+# Define function called is_prime with input n
+def is_prime(n):
+    if n < 1:
+        return False
+    else:
+        # for i from 2 up to n - 1
+        for i in range(2, n):
+            if n % i == 0:
+                return False
+        return True
+
+
+# Ask user for start_num and end_num
+start_num = int(input("Enter the start number: "))
+end_num = int(input("Enter the end number: "))
+
+# for num from start_num up to end_num
+for num in range(start_num, end_num + 1):
+    if is_prime(num):
+        print(num)

@@ -1,0 +1,116 @@
+# Program Name: Lab6.py
+# Course: IT1114/Section W01
+# Student Name: Israel Iyoha
+# Assignment Number: Lab6
+# Due Date: 06/25/2023
+# Purpose:  class called Worker that encapsulates data about an office worker.
+# https://realpython.com/python-classes/
+
+class Worker:
+    # Initialize employee_number, office_number, name, birthdate, hours_worked, hours_overtime to empty/zero
+    # This constructor doesn't accept any arguments
+    def __init__(self):
+        self.employee_number = 0
+        self.office_number = 0
+        self.fname = ""
+        self.lname = ""
+        self.birthdate = ""
+        self.hours_worked = 0
+        self.hours_overtime = 0
+        self.hourly_salary = 0
+        self.overtime_salary = 0
+
+    # This method returns the value in the employee_number field
+    def get_employee_number(self):
+        return self.employee_number
+
+    # This method accepts an integer argument and assigns it to the employee_number field
+    def set_employee_number(self, employee_number):
+        self.employee_number = employee_number
+
+    # This method returns the value in the office_number field
+    def get_office_number(self):
+        return self.office_number
+
+    # This method accepts an integer argument and assigns it to the office_number field
+    # If the office number given is less than 100 or greater than 500 return False
+    def set_office_number(self, office_number):
+        if 100 <= office_number <= 500:
+            self.office_number = office_number
+            return True
+        else:
+            return False
+
+    # This method returns the value in the fname and lname field
+    def get_name(self):
+        return self.fname + " " + self.lname
+
+    # This method accepts two string arguments and assigns it to the fname and lname field
+    def set_name(self, first, last):
+        self.fname = first
+        self.lname = last
+
+    # This method accepts three arguments: Month, Day, Year
+    def get_birthdate(self, month, day, year):
+        self.birthdate = str(month) + "/" + str(day) + "/" + str(year)
+
+    # This method accepts three arguments, which are the new day, month, and year of the birthdate
+    # If the month is 1-12 and the day is 1-31, change the birthdate to the new date and return True
+    # Otherwise, return False
+    def set_birthdate(self, day, month, year):
+        if 1 <= month <= 12 and 1 <= day <= 31:
+            self.birthdate = str(month) + "/" + str(day) + "/" + str(year)
+            return True
+        else:
+            return False
+
+    # This method returns the value in the hours_worked field
+    def get_hours_worked(self):
+        return self.hours_worked
+
+    # This method accepts an integer argument and assigns it to the hours_worked field
+    # If the number of hours being added is greater than 9, add 9 hours to the
+    # total hours worked and add the remainder to the total overtime
+    def add_hours(self, hours_worked):
+        if hours_worked > 9:
+            self.hours_worked += 9
+            self.hours_overtime += hours_worked - 9
+        else:
+            self.hours_worked += hours_worked
+
+    # This method returns the value in the hours_overtime field
+    def get_hours_overtime(self):
+        return self.hours_overtime
+
+    # This method Sets the worker’s hourly salary
+    # If the salary given is less than zero, return false, else, return true
+    def set_hourly_salary(self, hourly_salary):
+        if hourly_salary < 0:
+            return False
+        else:
+            self.hourly_salary = hourly_salary
+            return True
+
+    # This method Sets the worker’s overtime salary
+    # If the salary given is less than zero, return false, else, return true
+    def set_overtime_salary(self, overtime_salary):
+        if overtime_salary < 0:
+            return False
+        else:
+            self.overtime_salary = overtime_salary
+            return True
+
+    # This method returns the worker’s hourly salary
+    def get_hourly_salary(self):
+        return self.hourly_salary
+
+    # This method returns the worker’s overtime salary
+    def get_overtime_salary(self):
+        return self.overtime_salary
+
+    # This method returns the worker’s total pay
+    # Pay is: (hours_worked * hourly_salary) + (overtime * overtime_salary)
+    def get_pay(self):
+        return (self.hours_worked * self.hourly_salary) + (self.hours_overtime * self.overtime_salary)
+
+
